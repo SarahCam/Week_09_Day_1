@@ -15,7 +15,7 @@ public class Controller {
 
         get("/one", (req, res) -> {
             Randomiser randomiser = new Randomiser();
-            List<String> names = randomiser.get1Name();
+            List<String> names = randomiser.getNames(1);
             HashMap<String, Object> model = new HashMap<>();
             model.put("names", names);
             return new ModelAndView(model, "names.vtl");
@@ -23,7 +23,7 @@ public class Controller {
 
         get("/two", (req, res) -> {
             Randomiser randomiser = new Randomiser();
-            List<String> names = randomiser.get2Names();
+            List<String> names = randomiser.getNames(2);
             HashMap<String, Object> model = new HashMap<>();
             model.put("names", names);
             return new ModelAndView(model, "names.vtl");
@@ -32,6 +32,22 @@ public class Controller {
         get("/three", (req, res) -> {
             Randomiser randomiser = new Randomiser();
             List<String> names = randomiser.getNames(3);
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("names", names);
+            return new ModelAndView(model, "names.vtl");
+        }, velocityTemplateEngine);
+
+        get("/four", (req, res) -> {
+            Randomiser randomiser = new Randomiser();
+            List<String> names = randomiser.getNames(4);
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("names", names);
+            return new ModelAndView(model, "names.vtl");
+        }, velocityTemplateEngine);
+
+        get("/twenty", (req, res) -> {
+            Randomiser randomiser = new Randomiser();
+            List<String> names = randomiser.getNames(20);
             HashMap<String, Object> model = new HashMap<>();
             model.put("names", names);
             return new ModelAndView(model, "names.vtl");

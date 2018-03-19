@@ -1,7 +1,7 @@
 import models.Randomiser;
 import spark.ModelAndView;
+import spark.template.velocity.VelocityTemplateEngine;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,17 +11,23 @@ public class Controller {
 
     public static void main(String[] args) {
 
+        VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
+
         get("/one", (req, res) -> {
             Randomiser randomiser = new Randomiser();
-            String result = randomiser.get1Name();
-            return result;
-        });
+            List<String> names = randomiser.get1Name();
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("names", names);
+            return new ModelAndView(model, "names.vtl");
+        }, velocityTemplateEngine);
 
         get("/two", (req, res) -> {
             Randomiser randomiser = new Randomiser();
-            List<String> result = randomiser.get2Names();
-            return result;
-        });
+            List<String> names = randomiser.get2Names();
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("names", names);
+            return new ModelAndView(model, "names.vtl");
+        }, velocityTemplateEngine);
 
     }
 

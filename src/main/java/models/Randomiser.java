@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Randomiser {
 
-    public static String get1Name() {
+    public static List<String> get1Name() {
         ArrayList<String> names = new ArrayList<String>();
 
         names.add ("Maisie");
@@ -21,7 +21,7 @@ public class Randomiser {
 
         Collections.shuffle(names);
 
-        return names.get(0);
+        return names.subList(0, 1);
     }
 
     public static List<String> get2Names() {

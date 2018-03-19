@@ -42,4 +42,22 @@ public class Randomiser {
         return names.subList(0,2);
     }
 
+    public static List<String> getNames(int amount) {
+        ArrayList<String> names = new ArrayList<String>();
+
+        names.add ("Maisie");
+        names.add ("Emily");
+        names.add ("Archer");
+        names.add ("James");
+        names.add ("Jane");
+        names.add ("Jamie");
+        names.add ("Popeye");
+        names.add ("Millie");
+        names.add ("Robbie");
+
+        Collections.shuffle(names);
+
+        return names.subList(0,amount);
+    }
+
 }

@@ -39,7 +39,7 @@ public class Randomiser {
 
         Collections.shuffle(names);
 
-        return names.subList(0,1);
+        return names.subList(0,2);
     }
 
 }

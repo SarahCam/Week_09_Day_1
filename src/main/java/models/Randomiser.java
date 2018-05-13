@@ -21,8 +21,9 @@ public class Randomiser {
 
         Collections.shuffle(names);
 
-        if (amount > names.size()){
-            return names.subList(0, names.size());
+        if (amount > names.size() || amount < 0){
+            return names;
+           // return names.subList(0, names.size());
         }
         return names.subList(0,amount);
     }
